@@ -240,7 +240,22 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    const result = questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                targetOptionIndex === -1 ?
+                    { ...question, options: [...question.options, newOption] }
+                :   {
+                        ...question,
+                        options: question.options.map((option) =>
+                            option === question.options[targetOptionIndex] ?
+                                newOption
+                            :   option,
+                        ),
+                    }
+            :   { ...question },
+    );
+    return result;
 }
 
 /***
