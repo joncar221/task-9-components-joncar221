@@ -8,15 +8,15 @@ export function ChangeType(): React.JSX.Element {
         <div>
             <button
                 onClick={() => {
-                    type === "short_answer_question"
-                        ? setType("multiple_choice_question")
-                        : setType("short_answer_question");
+                    type === "short_answer_question" ?
+                        setType("multiple_choice_question")
+                    :   setType("short_answer_question");
                 }}
             >
                 Change Type:
-                {type === "multiple_choice_question"
-                    ? "Multiple Choice"
-                    : "Short Answer"}
+                {type === "multiple_choice_question" ?
+                    "Multiple Choice"
+                :   "Short Answer"}
             </button>
         </div>
     );
